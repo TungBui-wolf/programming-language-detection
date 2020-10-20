@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Programming Language Detection</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="https://nguyenvanhieu.vn/wp-content/uploads/2018/08/pointer.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function clear_result() {
+            $('.result').text('')
+            $('textarea').text('')
+        }
+    </script>
+</head>
+<body>
+
+    <div class="fixed-header">
+        <h2>Programming Language Detection Demo</h2>
+        <p>Detect programming language from source code</p>
+    </div>
+
+    <div class="container">
+        <div class="code-block">
+            <form method="post">
+                <div class="form-group">
+                    <h3><label for="code">Just paste your code here:</label></h3>
+                    <textarea class="form-control" rows="13" name="code" id="code">{{code}}</textarea>
+                    <input type="submit" value="Submit" class="btn btn-success btn-lg" style="margin-top: 20px;">
+                    <input type="reset" value="Reset" class="btn btn-default btn-lg" style="margin-top: 20px;"
+                           onclick="clear_result()">
+                </div>
+            </form>
+        </div>
+
+        <div class="result">
+            <h3>Predict result:</h3>
+            {% if language %}
+            <h4>Programming Language: <strong>{{ language }}</strong></h4>
+            {% endif %}
+            {% if score %}
+            <h4>Confidence Score: <em>{{ score }}</em> %</h4>
+            {% endif %}
+            {% if error %}
+            <p style="color: red;font-weight: bold;">{{error}}</p>
+            {% endif %}
+        </div>
+
+        <p>List of supported programming languages:</p>
+        <pre>Total 53 programming language, example: Python, Java, C#, C++, C, HTML, Objective-C, Haskell, Rust, Matlab, Nix, Swift, Go, Protobuf, Lua, Pascal, Lisp, Wasm, Q, Actions Script, Haxe, Handlebars, Dart, Live Script, Json ...</pre>
+    </div>
+
+    <div class="fixed-footer" style="margin-top:20px;">
+        <p>Made with <span style="color: red;">❤</span> by <a href="https://viblo.asia/u/tungbuitien" target="_blank">Bui Tien Tung</a>  ( Original design by <a href="https://nguyenvanhieu.vn" target="_blank">Nguyen Van Hieu</a> )</p>
+    </div>
+</body>
+</html>

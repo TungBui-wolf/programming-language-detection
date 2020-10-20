@@ -1,0 +1,19 @@
+.container{
+    width: 80%;
+    margin: 0 auto 50px; /* Center the DIV horizontally */
+}
+.fixed-header, .fixed-footer{
+    width: 100%;
+    background: #333;
+    padding: 5px 0;
+    color: #fff;
+}
+.fixed-header{
+    top: 0;
+    text-align: center;
+}
+.fixed-footer{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+} 
